@@ -6,4 +6,4 @@ Imagine there's a ton of information out there on the internet, all information 
 
 So how about creating a tool that allows you to check yourself how much the internet knows about you and what you can do to defend yourself against (ab)use of this information without your permission.
 
-Come check us out at [www.eidyia.me](https://www.eidyia.me).
+Come check us out at [www.eidyia.me](http://www.eidyia.me).
