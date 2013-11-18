@@ -2,7 +2,7 @@
 
 <!-- file: <project>/phpunit.xml -->
 
-<phpunit bootstrap="./src/autoload.php" colors="true">
+<phpunit bootstrap="./src/autoload.php" colors="false">
 
     <testsuite name="Eidyia Tests">
         <directory>./tests</directory>
