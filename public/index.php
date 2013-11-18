@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-$app = new \Slim\Slim();
+$app = new Silex\Application();
 
 $app->get('/', function () {
     echo 'Comming soon';
