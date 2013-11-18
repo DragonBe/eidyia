@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- file: <project>/phpunit.xml -->
+
+<phpunit bootstrap="./src/autoload.php" colors="true">
+
+    <testsuite name="Eidyia Tests">
+        <directory>./tests</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".phtml">./src</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+</phpunit>
