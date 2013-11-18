@@ -6,4 +6,6 @@ Imagine there's a ton of information out there on the internet, all information 
 
 So how about creating a tool that allows you to check yourself how much the internet knows about you and what you can do to defend yourself against (ab)use of this information without your permission.
 
+This whole project started off by [a talk given by Keith Casey at TrueNorthPHP](https://joind.in/9992).
+
 Come check us out at [www.eidyia.me](http://www.eidyia.me).
