@@ -9,3 +9,17 @@ So how about creating a tool that allows you to check yourself how much the inte
 This whole project started off by [a talk given by Keith Casey at TrueNorthPHP](https://joind.in/9992).
 
 Come check us out at [www.eidyia.me](http://www.eidyia.me).
+
+## VirtualHost setup
+
+    <VirtualHost *:80>
+        ServerName eidyia.local
+        ServerAlias www.eidyia.local
+        DocumentRoot "/path/to/eidyia/public"
+        <Directory "/path/to/eidyia/public">
+            Options Indexes FollowSymlinks
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+    </VirtualHost>
