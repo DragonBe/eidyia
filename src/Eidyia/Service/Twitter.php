@@ -16,27 +16,31 @@ class Twitter
 
         $twitter = new \TwitterAPIExchange($settings);
         $cacheFile = '/tmp/twitterlist-' . $screenName . '.json';
-        if (1800 < (\time() - \filemtime($cacheFile))) {
+        if (file_exists($cacheFile) && 1800 < (\time() - \filemtime($cacheFile))) {
             \unlink($cacheFile);
         }
         if (!file_exists($cacheFile) || false === ($data = file_get_contents($cacheFile))) {
             $cursor = -1;
             $twitterLists = array ();
             while ($cursor !== 0) {
-                $data = $twitter->setGetfield($getData . '&cursor=' . $cursor)
+                $tmpData = $twitter->setGetfield($getData . '&cursor=' . $cursor)
                     ->buildOauth($url, $requestMethod)
                     ->performRequest();
-                $json = json_decode($data);
-                var_dump($json);
+                $json = json_decode($tmpData);
+                if (isset ($json->errors[0]->message)) {
+                    $cursor = 0;
+                    break;
+                }
                 $cursor = $json->next_cursor;
                 foreach ($json->lists as $list) {
                     $twitterLists[] = $list;
                 }
             }
-            file_put_contents($cacheFile, json_encode($twitterLists), FILE_APPEND);
+            $data = json_encode($twitterLists);
+            file_put_contents($cacheFile, json_encode($data), FILE_APPEND);
         }
 
-        $lists = json_decode($data);
+        $lists = $data !== '"[]"' ? json_decode($data) : array ();
         $array = array ();
         foreach ($lists as $list) {
             $array[] = strtolower(basename($list->uri));

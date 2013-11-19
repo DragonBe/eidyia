@@ -1,5 +1,5 @@
 <?php
-require_once './vendor/autoload.php';
+//require_once './vendor/autoload.php';
 /**
  * Simple autoloader that follow the PHP Standards Recommendation #0 (PSR-0)
  * @see https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md for more informations.
