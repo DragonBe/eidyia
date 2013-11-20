@@ -29,6 +29,7 @@ class Twitter
                 $json = json_decode($tmpData);
                 if (isset ($json->errors[0]->message)) {
                     $cursor = 0;
+                    return array ($json->errors[0]->message => 0);
                     break;
                 }
                 $cursor = $json->next_cursor;
